@@ -2,6 +2,16 @@
 
 game();
 
+function game() {
+    n = prompt("Enter numbers of Rounds");
+    for (let i = 0; i < n; ++i) {
+      const playerSelection = prompt("Enter selection");
+      const computerSelection = getComputerChoice();
+      lower = playerSelection.toLowerCase();
+      console.log(playRound(lower, computerSelection));
+    }
+  }
+
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3 + 1);
 
@@ -27,13 +37,4 @@ function playRound(playerSelection, computerSelection) {
     return `Its a draw! You both have ${playerSelection}`;
 
   return `You ${results[playerSelection][computerSelection]}! ${playerSelection} beats ${computerSelection}`;
-}
-
-function game() {
-  for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt("Enter selection: ");
-    const computerSelection = getComputerChoice();
-    lower = playerSelection.toLowerCase();
-    console.log(playRound(lower, computerSelection));
-  }
 }
