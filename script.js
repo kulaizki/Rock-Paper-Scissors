@@ -22,7 +22,7 @@ function playRound(playerSelection, computerSelection) {
     scissors: { paper: "win", rock: "lose" },
   };
 
-  if (results[playerSelection] === undefined) return "Invalid Player Selection";
+  if (results[playerSelection] === undefined) return "Invalid Input";
   if (playerSelection === computerSelection)
     return `Its a draw! You both have ${playerSelection}`;
 
