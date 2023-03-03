@@ -1,11 +1,18 @@
 // in progress
 
+const one = document.querySelectorAll(".one");
 const playButton = document.querySelector(".play");
 const click1 = document.getElementById("click-1");
 
 playButton.addEventListener("click", () => {
   click1.currentTime = 0;
   click1.play();
+  one.forEach(function(div) {
+    div.classList.add("animate-out");
+    div.addEventListener("animationend", () => {
+      div.classList.add("hidden");
+    })
+  })
 });
 
 // game();
