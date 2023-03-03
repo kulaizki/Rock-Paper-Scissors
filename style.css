@@ -25,7 +25,7 @@ h1 {
     font-size: 4rem;
 }
 
-.start {
+.play {
     width: 20rem;
     height: 10rem;
     border-radius: 1rem;
@@ -37,7 +37,7 @@ h1 {
     transition: .35s;
 }
 
-.start:hover {
+.play:hover {
     cursor: pointer;
     background-color: rgb(49, 224, 29);
     scale: 1.1;
@@ -63,5 +63,9 @@ h1 {
 
 .footer img:hover {
     transform: rotate(360deg);
+}
+
+.hide {
+    display: hide;
 }
 
