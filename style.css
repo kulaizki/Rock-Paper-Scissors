@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100;300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+body {
+    background-color: rgb(35, 35, 35);
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow-y: hidden;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.4rem;
+    gap: 3rem;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+.start {
+    width: 20rem;
+    height: 10rem;
+    border-radius: 1rem;
+    background-color: rgb(24, 195, 5);
+    color: rgba(35, 35, 35, .9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .35s;
+}
+
+.start:hover {
+    cursor: pointer;
+    background-color: rgb(49, 224, 29);
+    scale: 1.1;
+    box-shadow: 0 0 1.5rem rgb(46, 228, 25);
+    color: rgb(35, 35, 35);
+}
+
+.footer {
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: .5rem;
+    padding: .7rem;
+}
+
+.footer img {
+    height: 2rem;
+    transition: transform .4s ease-in-out;
+}
+
+.footer img:hover {
+    transform: rotate(360deg);
+}
+
