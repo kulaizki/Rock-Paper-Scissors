@@ -1,6 +1,14 @@
 // in progress
 
-game();
+const playButton = document.querySelector(".play");
+const click1 = document.getElementById("click-1");
+
+playButton.addEventListener("click", () => {
+  click1.currentTime = 0;
+  click1.play();
+});
+
+// game();
 
 function game() {
     n = prompt("Enter numbers of Rounds");
