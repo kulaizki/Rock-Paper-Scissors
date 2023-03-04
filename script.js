@@ -2,11 +2,11 @@
 
 const one = document.querySelectorAll(".one");
 const playButton = document.querySelector(".play");
-const click1 = document.getElementById("click-1");
+const playAudio = document.getElementById("play-audio");
 
 playButton.addEventListener("click", () => {
-  click1.currentTime = 0;
-  click1.play();
+  playAudio.currentTime = 0;
+  playAudio.play();
   one.forEach(function(div) {
     div.classList.add("animate-out");
     div.addEventListener("animationend", () => {
