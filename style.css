@@ -116,6 +116,7 @@ h1 {
 .selection img {
   width: 8rem;
   height: 96%;
+  transition: .4s;
 }
 
 #rock {
@@ -124,6 +125,7 @@ h1 {
 
 .selection img:hover {
   cursor: pointer;
+  scale: 1.15;
 }
 
 .scoreboard, .player-select, .scores {
@@ -140,5 +142,3 @@ h1 {
 span {
   color: rgb(206, 145, 229);
 }
-
-
