@@ -3,15 +3,21 @@
 const one = document.querySelectorAll(".one");
 const playButton = document.querySelector(".play");
 const playAudio = document.getElementById("play-audio");
+const two = document.querySelectorAll(".two");
 
 playButton.addEventListener("click", () => {
   playAudio.currentTime = 0;
   playAudio.play();
-  one.forEach(function(div) {
+  one.forEach((div) => {
     div.classList.add("animate-out");
     div.addEventListener("animationend", () => {
       div.classList.add("hidden");
-    })
+      two.forEach((e) => {
+        e.classList.remove("two");
+        e.classList.add("animate-in");
+      })
+    });
+
   })
 });
 

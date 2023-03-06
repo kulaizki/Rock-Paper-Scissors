@@ -69,21 +69,76 @@ h1 {
   display: hide;
 }
 
-@keyframes myAnimation {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .animate-out {
-    animation-name: myAnimation;
-    animation-duration: .7s;
-    animation-fill-mode: forwards;
+  animation-name: fadeOut;
+  animation-duration: .7s;
+  animation-fill-mode: forwards;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-name: fadeIn;
+  animation-duration: .7s;
+  animation-fill-mode: forwards;
+}
+
+.two {
+  display: none;
+}
+
+.selection {
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+}
+
+.selection img {
+  width: 8rem;
+  height: 96%;
+}
+
+#rock {
+  height: 85%;
+}
+
+.selection img:hover {
+  cursor: pointer;
+}
+
+.scoreboard, .player-select, .scores {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.scoreboard {
+  flex-direction: column;
+}
+
+span {
+  color: rgb(206, 145, 229);
+}
+
+
