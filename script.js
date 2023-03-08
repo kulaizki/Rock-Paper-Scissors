@@ -1,9 +1,11 @@
 // in progress
 
-const one = document.querySelectorAll(".one");
 const playButton = document.querySelector(".play");
-const playAudio = document.getElementById("play-audio");
+const one = document.querySelectorAll(".one");
 const two = document.querySelectorAll(".two");
+const selectionImages = document.querySelectorAll(".selection img");
+const clickAudio = document.getElementById("click-audio");
+const playAudio = document.getElementById("play-audio");
 
 playButton.addEventListener("click", () => {
   playAudio.currentTime = 0;
@@ -17,9 +19,15 @@ playButton.addEventListener("click", () => {
         e.classList.add("animate-in");
       })
     });
-
   })
 });
+
+selectionImages.forEach(img => {
+  img.addEventListener("click", () => {
+    clickAudio.currentTime = 0;
+    clickAudio.play();
+  });
+})
 
 // game();
 
