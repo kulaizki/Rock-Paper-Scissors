@@ -128,6 +128,10 @@ h1 {
   scale: 1.15;
 }
 
+.selection img:active {
+  transform: rotate(30deg);
+}
+
 .scoreboard, .player-select, .scores {
   display: flex;
   align-items: center;
