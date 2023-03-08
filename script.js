@@ -36,20 +36,22 @@ const scissors = document.getElementById("scissors");
 const playerSelection = document.getElementById("player");
 const AiSelection = document.getElementById("ai");
 
+function setImage(src) {
+  playerSelection.src = src;
+  playerSelection.style.height = "120px";
+}
+
 rock.addEventListener("click", () => {
-  playerSelection.src = "./images/rock.png";
-  playerSelection.style.height = "7.5rem";
-})
+  setImage("./images/rock.png");
+});
 
 paper.addEventListener("click", () => {
-  playerSelection.src = "./images/paper.png";
-  playerSelection.style.height = "7.5rem";
-})
+  setImage("./images/paper.png");
+});
 
 scissors.addEventListener("click", () => {
-  playerSelection.src = "./images/scissors.png";
-  playerSelection.style.height = "7.5rem";
-})
+  setImage("./images/scissors.png");
+});
 
 // game();
 

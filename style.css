@@ -145,4 +145,5 @@ h1 {
 
 .scoreboard {
   flex-direction: column;
+  margin-top: 1.5rem;
 }
