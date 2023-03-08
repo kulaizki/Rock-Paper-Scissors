@@ -119,10 +119,6 @@ h1 {
   transition: .4s;
 }
 
-#rock {
-  height: 85%;
-}
-
 .selection img:hover {
   cursor: pointer;
   scale: 1.15;
@@ -141,8 +137,4 @@ h1 {
 
 .scoreboard {
   flex-direction: column;
-}
-
-span {
-  color: rgb(206, 145, 229);
 }

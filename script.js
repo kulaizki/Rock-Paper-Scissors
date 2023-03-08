@@ -31,15 +31,14 @@ selectionImages.forEach(img => {
 
 // game();
 
-function game() {
-    n = prompt("Enter numbers of Rounds");
-    for (let i = 0; i < n; ++i) {
-      const playerSelection = prompt("Enter selection");
-      const computerSelection = getComputerChoice();
-      lower = playerSelection.toLowerCase();
-      console.log(playRound(lower, computerSelection));
-    }
-  }
+// function game() {
+//     for (let i = 0; i < 5; ++i) {
+//       const playerSelection;
+//       const computerSelection;
+//       console.log(playRound(lower, computerSelection));
+//     }
+//     // play again
+//   }
 
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3 + 1);
