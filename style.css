@@ -128,11 +128,19 @@ h1 {
   transform: rotate(30deg);
 }
 
-.scoreboard, .player-select, .scores {
+.scoreboard, .selected, .scores {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
+}
+
+.selected {
+  gap: 10rem;
+}
+
+.scores {
+  gap: 12rem;
 }
 
 .scoreboard {
