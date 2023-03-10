@@ -54,13 +54,13 @@ function getComputerChoice() {
   switch (choice) {
     case 1:
       setImageAI("./images/rock.png");
-      break;
+      return 1;
     case 2:
       setImageAI("./images/paper.png");
-      break;
+      return 2;
     case 3:
       setImageAI("./images/scissors.png");
-      break;
+      return 3;
   }
 }
 
@@ -78,19 +78,6 @@ scissors.addEventListener("click", () => {
   setImagePlayer("./images/scissors.png");
   getComputerChoice();
 });
-
-// game();
-
-// function game() {
-//     for (let i = 0; i < 5; ++i) {
-//       const playerSelection;
-//       const computerSelection;
-//       console.log(playRound(lower, computerSelection));
-//     }
-//     // play again
-//   }
-
-
 
 // function playRound(playerSelection, computerSelection) {
 //   const results = {
