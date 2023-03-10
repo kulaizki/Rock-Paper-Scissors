@@ -38,19 +38,41 @@ const AiSelection = document.getElementById("ai");
 
 function setImage(src) {
   playerSelection.src = src;
-  playerSelection.style.height = "120px";
+  playerSelection.style.height = "7.5rem";
+}
+
+function getComputerChoice() {
+  let choice = Math.floor(Math.random() * 3 + 1);
+
+  switch (choice) {
+    case 1:
+      AiSelection.src = "./images/rock.png";
+      AiSelection.style.height = "7.5rem";
+      break;
+    case 2:
+      AiSelection.src = "./images/paper.png";
+      AiSelection.style.height = "7.5rem";
+      break;
+    case 3:
+      AiSelection.src = "./images/scissors.png";
+      AiSelection.style.height = "7.5rem";
+      break;
+  }
 }
 
 rock.addEventListener("click", () => {
   setImage("./images/rock.png");
+  getComputerChoice();
 });
 
 paper.addEventListener("click", () => {
   setImage("./images/paper.png");
+  getComputerChoice();
 });
 
 scissors.addEventListener("click", () => {
   setImage("./images/scissors.png");
+  getComputerChoice();
 });
 
 // game();
@@ -64,18 +86,7 @@ scissors.addEventListener("click", () => {
 //     // play again
 //   }
 
-// function getComputerChoice() {
-//   let choice = Math.floor(Math.random() * 3 + 1);
 
-//   switch (choice) {
-//     case 1:
-//       return "rock";
-//     case 2:
-//       return "paper";
-//     case 3:
-//       return "scissors";
-//   }
-// }
 
 // function playRound(playerSelection, computerSelection) {
 //   const results = {
