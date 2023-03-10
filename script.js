@@ -36,9 +36,16 @@ const scissors = document.getElementById("scissors");
 const playerSelection = document.getElementById("player");
 const AiSelection = document.getElementById("ai");
 
-function setImage(src) {
+function setImagePlayer(src) {
   playerSelection.src = src;
   playerSelection.style.height = "7.5rem";
+  playerSelection.style.width = "6.1rem";
+}
+
+function setImageAI(src) {
+  AiSelection.src = src;
+  AiSelection.style.height = "7.5rem";
+  AiSelection.style.width = "6.1rem";
 }
 
 function getComputerChoice() {
@@ -46,32 +53,29 @@ function getComputerChoice() {
 
   switch (choice) {
     case 1:
-      AiSelection.src = "./images/rock.png";
-      AiSelection.style.height = "7.5rem";
+      setImageAI("./images/rock.png");
       break;
     case 2:
-      AiSelection.src = "./images/paper.png";
-      AiSelection.style.height = "7.5rem";
+      setImageAI("./images/paper.png");
       break;
     case 3:
-      AiSelection.src = "./images/scissors.png";
-      AiSelection.style.height = "7.5rem";
+      setImageAI("./images/scissors.png");
       break;
   }
 }
 
 rock.addEventListener("click", () => {
-  setImage("./images/rock.png");
+  setImagePlayer("./images/rock.png");
   getComputerChoice();
 });
 
 paper.addEventListener("click", () => {
-  setImage("./images/paper.png");
+  setImagePlayer("./images/paper.png");
   getComputerChoice();
 });
 
 scissors.addEventListener("click", () => {
-  setImage("./images/scissors.png");
+  setImagePlayer("./images/scissors.png");
   getComputerChoice();
 });
 
