@@ -10,6 +10,7 @@ const aiWinAudio = document.getElementById("ai-win-audio");
 const loseAudio = document.getElementById("lose-audio");
 const win1Audio = document.getElementById("win1-audio");
 const win2Audio = document.getElementById("win2-audio");
+const body = document.querySelector("body");
 
 playButton.addEventListener("click", () => {
   playAudio.currentTime = 0;
@@ -71,14 +72,10 @@ function getComputerChoice() {
 
 const player = document.getElementById("player-score");
 const ai = document.getElementById("ai-score");
+const win = document.querySelector(".win");
+const lose = document.querySelector(".lose");
 let playerScore = 0;
 let aiScore = 0;
-
-player.style.color = "rgb(12, 214, 255)";
-player.style.textShadow = "0 0 .2rem rgb(12, 214, 255)";
-ai.style.color = "rgb(252, 113, 113)";
-ai.style.textShadow = "0 0 .2rem rgb(252, 113, 113)";
-
 let pChoice = 0;
 let aChoice = 0;
 
@@ -94,7 +91,7 @@ rock.addEventListener("click", () => {
     } else {
       playerScore++;
       playerWinAudio.currentTime = 0;
-      playerWinAudio.play()
+      playerWinAudio.play();
     }
   }
   player.textContent = `You: ${playerScore}`;
@@ -114,7 +111,7 @@ paper.addEventListener("click", () => {
     } else {
       playerScore++;
       playerWinAudio.currentTime = 0;
-      playerWinAudio.play()
+      playerWinAudio.play();
     }
   }
   player.textContent = `You: ${playerScore}`;
@@ -134,7 +131,7 @@ scissors.addEventListener("click", () => {
     } else {
       playerScore++;
       playerWinAudio.currentTime = 0;
-      playerWinAudio.play()
+      playerWinAudio.play();
     }
   }
   player.textContent = `You: ${playerScore}`;
@@ -146,8 +143,19 @@ function gameEnd(playerScore, aiScore) {
   if (playerScore == 5) {
     win1Audio.play();
     win2Audio.play();
-  }
+    win.classList.remove("hidden");
+    body.classList.add("blur-out");
+    // bodyDiv.forEach((e) => {
+    //   e.classList.add("blur-out");
+    // });
+  } 
   else if (aiScore == 5) {
     loseAudio.play();
+    body.classList.add("blur-out");
+    lose.classList.remove("hidden");
+    body.classList.add("blur-out");
+    // bodyDiv.forEach((e) => {
+    //   e.classList.add("blur-out");
+    // });
   }
 }

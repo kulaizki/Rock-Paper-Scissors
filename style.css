@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid red;  */
 }
 
 body {
@@ -23,6 +22,7 @@ body {
 
 h1 {
   font-size: 4rem;
+  z-index: 10;
 }
 
 .play {
@@ -87,7 +87,9 @@ h1 {
 }
 
 .hidden {
+  opacity: 0;
   display: none;
+  z-index: -1;
 }
 
 @keyframes fadeIn {
@@ -101,13 +103,23 @@ h1 {
 
 .animate-in {
   animation-name: fadeIn;
-  animation-duration: .7s;
+  animation-duration: .75s;
   animation-fill-mode: forwards;
 }
 
 .two {
   display: none;
   opacity: 0;
+}
+
+#player {
+  color: rgb(12, 214, 255);
+  text-shadow: 0 0 .2rem rgb(12, 214, 255);
+}
+
+#ai {
+  color: rgb(252, 113, 113);
+  text-shadow: 0 0 .2rem rgb(252, 113, 113);
 }
 
 .selection {
@@ -137,7 +149,7 @@ h1 {
   transform: rotate(30deg);
 }
 
-.scoreboard, .selected, .scores {
+.scoreboard, .selected, .scores, .win, .lose {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -158,4 +170,39 @@ h1 {
 .scoreboard {
   flex-direction: column;
   margin-top: 4rem;
+}
+
+@keyframes blur-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: .25;
+  }
+}
+
+.blur-out {
+  animation-name: blur-out;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.win, .lose {
+  position: absolute;
+  width: 35rem;
+  height: 30rem;
+  background-color: rgba(74, 74, 74, .85);
+  border-radius: 2rem;
+  padding: 4rem;
+  text-align: center;
+}
+
+.win {
+  color: greenyellow;
+  text-shadow: 0 0 .4rem greenyellow;
+}
+
+.lose {
+  color: rgb(255, 85, 47);
+  text-shadow: 0 0 .4rem rgb(255, 85, 47);
 }
