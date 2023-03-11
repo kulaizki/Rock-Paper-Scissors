@@ -5,6 +5,11 @@ const one = document.querySelectorAll(".one");
 const two = document.querySelectorAll(".two");
 const clickAudio = document.getElementById("click-audio");
 const playAudio = document.getElementById("play-audio");
+const playerWinAudio = document.getElementById("player-win-audio");
+const aiWinAudio = document.getElementById("ai-win-audio");
+const loseAudio = document.getElementById("lose-audio");
+const win1Audio = document.getElementById("win1-audio");
+const win2Audio = document.getElementById("win2-audio");
 
 playButton.addEventListener("click", () => {
   playAudio.currentTime = 0;
@@ -63,20 +68,16 @@ function getComputerChoice() {
       return 3;
   }
 }
-/* <span style="color: rgb(219, 153, 231); text-shadow: 0 0 .3rem rgb(219, 153, 231)"></span> */
+
 const player = document.getElementById("player-score");
-const Ai = document.getElementById("ai-score");
-
+const ai = document.getElementById("ai-score");
 let playerScore = 0;
-let AiScore = 0;
-
-player.textContent = `You: ${playerScore}`;
-Ai.textContent = `AI: ${AiScore}`;
+let aiScore = 0;
 
 player.style.color = "rgb(12, 214, 255)";
 player.style.textShadow = "0 0 .2rem rgb(12, 214, 255)";
-Ai.style.color = "rgb(252, 113, 113)";
-Ai.style.textShadow = "0 0 .2rem rgb(252, 113, 113)";
+ai.style.color = "rgb(252, 113, 113)";
+ai.style.textShadow = "0 0 .2rem rgb(252, 113, 113)";
 
 let pChoice = 0;
 let aChoice = 0;
@@ -86,14 +87,19 @@ rock.addEventListener("click", () => {
   pChoice = 1;
   aChoice = getComputerChoice();
   if (aChoice != pChoice) {
-    if (aChoice == 2) {
-      AiScore++;
+    if (aChoice === 2) {
+      aiScore++;
+      aiWinAudio.currentTime = 0;
+      aiWinAudio.play();
     } else {
       playerScore++;
+      playerWinAudio.currentTime = 0;
+      playerWinAudio.play()
     }
   }
   player.textContent = `You: ${playerScore}`;
-  Ai.textContent = `AI: ${AiScore}`;
+  ai.textContent = `AI: ${aiScore}`;
+  gameEnd(playerScore, aiScore);
 });
 
 paper.addEventListener("click", () => {
@@ -101,14 +107,19 @@ paper.addEventListener("click", () => {
   pChoice = 2;
   aChoice = getComputerChoice();
   if (aChoice != pChoice) {
-    if (aChoice == 3) {
-      AiScore++;
+    if (aChoice === 3) {
+      aiScore++;
+      aiWinAudio.currentTime = 0;
+      aiWinAudio.play();
     } else {
       playerScore++;
+      playerWinAudio.currentTime = 0;
+      playerWinAudio.play()
     }
   }
   player.textContent = `You: ${playerScore}`;
-Ai.textContent = `AI: ${AiScore}`;  
+  ai.textContent = `AI: ${aiScore}`;
+  gameEnd(playerScore, aiScore);
 });
 
 scissors.addEventListener("click", () => {
@@ -116,26 +127,27 @@ scissors.addEventListener("click", () => {
   pChoice = 3;
   aChoice = getComputerChoice();
   if (aChoice != pChoice) {
-    if (aChoice == 1) {
-      AiScore++;
+    if (aChoice === 1) {
+      aiScore++;
+      aiWinAudio.currentTime = 0;
+      aiWinAudio.play();
     } else {
       playerScore++;
+      playerWinAudio.currentTime = 0;
+      playerWinAudio.play()
     }
   }
   player.textContent = `You: ${playerScore}`;
-  Ai.textContent = `AI: ${AiScore}`;
+  ai.textContent = `AI: ${aiScore}`;
+  gameEnd(playerScore, aiScore);
 });
 
-// function playRound(playerSelection, computerSelection) {
-//   const results = {
-//     rock: { scissors: "win", paper: "lose" },
-//     paper: { rock: "win", scissors: "lose" },
-//     scissors: { paper: "win", rock: "lose" },
-//   };
-
-//   if (results[playerSelection] === undefined) return "Invalid Input";
-//   if (playerSelection === computerSelection)
-//     return `Its a draw! You both have ${playerSelection}`;
-
-//   return `You ${results[playerSelection][computerSelection]}! ${playerSelection} beats ${computerSelection}`;
-// }
+function gameEnd(playerScore, aiScore) {
+  if (playerScore == 5) {
+    win1Audio.play();
+    win2Audio.play();
+  }
+  else if (aiScore == 5) {
+    loseAudio.play();
+  }
+}
