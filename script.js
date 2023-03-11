@@ -16,19 +16,19 @@ playButton.addEventListener("click", () => {
       two.forEach((e) => {
         e.classList.remove("two");
         e.classList.add("animate-in");
-      })
+      });
     });
-  })
+  });
 });
 
 const selectionImages = document.querySelectorAll(".selection img");
 
-selectionImages.forEach(img => {
+selectionImages.forEach((img) => {
   img.addEventListener("click", () => {
     clickAudio.currentTime = 0;
     clickAudio.play();
   });
-})
+});
 
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
@@ -63,20 +63,67 @@ function getComputerChoice() {
       return 3;
   }
 }
+/* <span style="color: rgb(219, 153, 231); text-shadow: 0 0 .3rem rgb(219, 153, 231)"></span> */
+const player = document.getElementById("player-score");
+const Ai = document.getElementById("ai-score");
+
+let playerScore = 0;
+let AiScore = 0;
+
+player.textContent = `You: ${playerScore}`;
+Ai.textContent = `AI: ${AiScore}`;
+
+player.style.color = "rgb(12, 214, 255)";
+player.style.textShadow = "0 0 .2rem rgb(12, 214, 255)";
+Ai.style.color = "rgb(252, 113, 113)";
+Ai.style.textShadow = "0 0 .2rem rgb(252, 113, 113)";
+
+let pChoice = 0;
+let aChoice = 0;
 
 rock.addEventListener("click", () => {
   setImagePlayer("./images/rock.png");
-  getComputerChoice();
+  pChoice = 1;
+  aChoice = getComputerChoice();
+  if (aChoice != pChoice) {
+    if (aChoice == 2) {
+      AiScore++;
+    } else {
+      playerScore++;
+    }
+  }
+  player.textContent = `You: ${playerScore}`;
+  Ai.textContent = `AI: ${AiScore}`;
 });
 
 paper.addEventListener("click", () => {
   setImagePlayer("./images/paper.png");
-  getComputerChoice();
+  pChoice = 2;
+  aChoice = getComputerChoice();
+  if (aChoice != pChoice) {
+    if (aChoice == 3) {
+      AiScore++;
+    } else {
+      playerScore++;
+    }
+  }
+  player.textContent = `You: ${playerScore}`;
+Ai.textContent = `AI: ${AiScore}`;  
 });
 
 scissors.addEventListener("click", () => {
   setImagePlayer("./images/scissors.png");
-  getComputerChoice();
+  pChoice = 3;
+  aChoice = getComputerChoice();
+  if (aChoice != pChoice) {
+    if (aChoice == 1) {
+      AiScore++;
+    } else {
+      playerScore++;
+    }
+  }
+  player.textContent = `You: ${playerScore}`;
+  Ai.textContent = `AI: ${AiScore}`;
 });
 
 // function playRound(playerSelection, computerSelection) {
