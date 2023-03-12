@@ -88,7 +88,8 @@ rock.addEventListener("click", () => {
       aiScore++;
       aiWinAudio.currentTime = 0;
       aiWinAudio.play();
-    } else {
+    } 
+    else {
       playerScore++;
       playerWinAudio.currentTime = 0;
       playerWinAudio.play();
@@ -108,7 +109,8 @@ paper.addEventListener("click", () => {
       aiScore++;
       aiWinAudio.currentTime = 0;
       aiWinAudio.play();
-    } else {
+    } 
+    else {
       playerScore++;
       playerWinAudio.currentTime = 0;
       playerWinAudio.play();
@@ -128,7 +130,8 @@ scissors.addEventListener("click", () => {
       aiScore++;
       aiWinAudio.currentTime = 0;
       aiWinAudio.play();
-    } else {
+    } 
+    else {
       playerScore++;
       playerWinAudio.currentTime = 0;
       playerWinAudio.play();
@@ -143,17 +146,16 @@ function gameEnd(playerScore, aiScore) {
   if (playerScore === 5) {
     win1Audio.play();
     win2Audio.play();
-    win.classList.remove("hidden");
     win.classList.add("animate-in"); 
+    win.classList.remove("hidden");
     body.forEach((e) => {
       e.classList.add("blur-out");
-      e.classList.remove("animate-in");
       e.style.pointerEvents = "none";
     });
   } else if (aiScore === 5) {
     loseAudio.play();
-    lose.classList.remove("hidden");
     lose.classList.add("animate-in");
+    lose.classList.remove("hidden");
     body.forEach((e) => {
       e.classList.add("blur-out");
       e.style.pointerEvents = "none";
@@ -190,6 +192,7 @@ playAgain.forEach((button) => {
         lose.classList.add("hidden");
       });
     }
+
     playerScore = 0;
     aiScore = 0;
     player.textContent = `You: ${playerScore}`;

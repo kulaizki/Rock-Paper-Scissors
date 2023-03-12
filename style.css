@@ -184,7 +184,7 @@ h1 {
 
 .blur-out {
   animation-name: blur-out;
-  animation-duration: 1.5s;
+  animation-duration: 1.2s;
   animation-fill-mode: forwards;
 }
 
