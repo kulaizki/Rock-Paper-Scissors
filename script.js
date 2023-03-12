@@ -10,7 +10,7 @@ const aiWinAudio = document.getElementById("ai-win-audio");
 const loseAudio = document.getElementById("lose-audio");
 const win1Audio = document.getElementById("win1-audio");
 const win2Audio = document.getElementById("win2-audio");
-const body = document.querySelector("body");
+const body = document.querySelectorAll("body > :not(.pop)");
 
 playButton.addEventListener("click", () => {
   playAudio.currentTime = 0;
@@ -144,16 +144,21 @@ function gameEnd(playerScore, aiScore) {
     win1Audio.play();
     win2Audio.play();
     win.classList.remove("hidden");
-    body.classList.add("blur-out");
+    win.classList.add("animate-in");
+    body.forEach((e) => {
+      e.classList.add("blur-out");
+    })
     // bodyDiv.forEach((e) => {
     //   e.classList.add("blur-out");
     // });
   } 
   else if (aiScore == 5) {
     loseAudio.play();
-    body.classList.add("blur-out");
     lose.classList.remove("hidden");
-    body.classList.add("blur-out");
+    lose.classList.add("animate-in");
+    body.forEach((e) => {
+      e.classList.add("blur-out");
+    })
     // bodyDiv.forEach((e) => {
     //   e.classList.add("blur-out");
     // });
