@@ -140,16 +140,17 @@ scissors.addEventListener("click", () => {
 });
 
 function gameEnd(playerScore, aiScore) {
-  if (playerScore == 5) {
+  if (playerScore === 5) {
     win1Audio.play();
     win2Audio.play();
     win.classList.remove("hidden");
-    win.classList.add("animate-in");
+    win.classList.add("animate-in"); 
     body.forEach((e) => {
       e.classList.add("blur-out");
+      e.classList.remove("animate-in");
       e.style.pointerEvents = "none";
     });
-  } else if (aiScore == 5) {
+  } else if (aiScore === 5) {
     loseAudio.play();
     lose.classList.remove("hidden");
     lose.classList.add("animate-in");
@@ -173,7 +174,7 @@ playAgain.forEach((button) => {
       e.classList.add("animate-in");
       e.style.pointerEvents = "auto";
     });
-    if (playerScore == 5) {
+    if (playerScore === 5) {
       win.classList.remove("animate-in");
       win.classList.add("fade-out");
       win.addEventListener("animationend", () => {
@@ -181,7 +182,7 @@ playAgain.forEach((button) => {
         win.classList.add("hidden");
       });
     }
-    if (aiScore == 5) {
+    else if (aiScore === 5) {
       lose.classList.remove("animate-in");
       lose.classList.add("fade-out");
       lose.addEventListener("animationend", () => {

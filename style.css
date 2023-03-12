@@ -113,12 +113,12 @@ h1 {
   opacity: 0;
 }
 
-#player {
+#player-score {
   color: rgb(12, 214, 255);
   text-shadow: 0 0 .2rem rgb(12, 214, 255);
 }
 
-#ai {
+#ai-score {
   color: rgb(252, 113, 113);
   text-shadow: 0 0 .2rem rgb(252, 113, 113);
 }
