@@ -147,20 +147,51 @@ function gameEnd(playerScore, aiScore) {
     win.classList.add("animate-in");
     body.forEach((e) => {
       e.classList.add("blur-out");
-    })
-    // bodyDiv.forEach((e) => {
-    //   e.classList.add("blur-out");
-    // });
-  } 
-  else if (aiScore == 5) {
+      e.style.pointerEvents = "none";
+    });
+  } else if (aiScore == 5) {
     loseAudio.play();
     lose.classList.remove("hidden");
     lose.classList.add("animate-in");
     body.forEach((e) => {
       e.classList.add("blur-out");
-    })
-    // bodyDiv.forEach((e) => {
+      e.style.pointerEvents = "none";
+    });
     //   e.classList.add("blur-out");
     // });
   }
 }
+
+const playAgain = document.querySelectorAll(".play-again");
+
+playAgain.forEach((button) => {
+  button.addEventListener("click", () => {
+    playAudio.currentTime = 0;
+    playAudio.play();
+    body.forEach((e) => {
+      e.classList.remove("blur-out");
+      e.classList.add("animate-in");
+      e.style.pointerEvents = "auto";
+    });
+    if (playerScore == 5) {
+      win.classList.remove("animate-in");
+      win.classList.add("fade-out");
+      win.addEventListener("animationend", () => {
+        win.classList.remove("fade-out");
+        win.classList.add("hidden");
+      });
+    }
+    if (aiScore == 5) {
+      lose.classList.remove("animate-in");
+      lose.classList.add("fade-out");
+      lose.addEventListener("animationend", () => {
+        lose.classList.remove("fade-out");
+        lose.classList.add("hidden");
+      });
+    }
+    playerScore = 0;
+    aiScore = 0;
+    player.textContent = `You: ${playerScore}`;
+    ai.textContent = `AI: ${aiScore}`;
+  });
+});
