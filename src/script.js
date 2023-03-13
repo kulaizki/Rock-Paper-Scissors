@@ -60,13 +60,13 @@ function getComputerChoice() {
 
   switch (choice) {
     case 1:
-      setImageAI("/images/rock.png");
+      setImageAI("images/rock.png");
       return 1;
     case 2:
-      setImageAI("/images/paper.png");
+      setImageAI("images/paper.png");
       return 2;
     case 3:
-      setImageAI("/images/scissors.png");
+      setImageAI("images/scissors.png");
       return 3;
   }
 }
@@ -81,7 +81,7 @@ let pChoice = 0;
 let aChoice = 0;
 
 rock.addEventListener("click", () => {
-  setImagePlayer("/images/rock.png");
+  setImagePlayer("images/rock.png");
   pChoice = 1;
   aChoice = getComputerChoice();
   if (aChoice != pChoice) {
@@ -104,7 +104,7 @@ rock.addEventListener("click", () => {
 });
 
 paper.addEventListener("click", () => {
-  setImagePlayer("/images/paper.png");
+  setImagePlayer("images/paper.png");
   pChoice = 2;
   aChoice = getComputerChoice();
   if (aChoice != pChoice) {
@@ -128,7 +128,7 @@ paper.addEventListener("click", () => {
 });
 
 scissors.addEventListener("click", () => {
-  setImagePlayer("/images/scissors.png");
+  setImagePlayer("images/scissors.png");
   pChoice = 3;
   aChoice = getComputerChoice();
   if (aChoice != pChoice) {
