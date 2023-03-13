@@ -7,6 +7,7 @@ const clickAudio = document.getElementById("click-audio");
 const playAudio = document.getElementById("play-audio");
 const playerWinAudio = document.getElementById("player-win-audio");
 const aiWinAudio = document.getElementById("ai-win-audio");
+const drawAudio = document.getElementById("draw-audio");
 const loseAudio = document.getElementById("lose-audio");
 const win1Audio = document.getElementById("win1-audio");
 const win2Audio = document.getElementById("win2-audio");
@@ -59,13 +60,13 @@ function getComputerChoice() {
 
   switch (choice) {
     case 1:
-      setImageAI("./images/rock.png");
+      setImageAI("/images/rock.png");
       return 1;
     case 2:
-      setImageAI("./images/paper.png");
+      setImageAI("/images/paper.png");
       return 2;
     case 3:
-      setImageAI("./images/scissors.png");
+      setImageAI("/images/scissors.png");
       return 3;
   }
 }
@@ -80,7 +81,7 @@ let pChoice = 0;
 let aChoice = 0;
 
 rock.addEventListener("click", () => {
-  setImagePlayer("./images/rock.png");
+  setImagePlayer("/images/rock.png");
   pChoice = 1;
   aChoice = getComputerChoice();
   if (aChoice != pChoice) {
@@ -88,12 +89,14 @@ rock.addEventListener("click", () => {
       aiScore++;
       aiWinAudio.currentTime = 0;
       aiWinAudio.play();
-    } 
-    else {
+    } else {
       playerScore++;
       playerWinAudio.currentTime = 0;
       playerWinAudio.play();
     }
+  } else {
+    drawAudio.currentTime = 0;
+    drawAudio.play();
   }
   player.textContent = `You: ${playerScore}`;
   ai.textContent = `AI: ${aiScore}`;
@@ -101,7 +104,7 @@ rock.addEventListener("click", () => {
 });
 
 paper.addEventListener("click", () => {
-  setImagePlayer("./images/paper.png");
+  setImagePlayer("/images/paper.png");
   pChoice = 2;
   aChoice = getComputerChoice();
   if (aChoice != pChoice) {
@@ -109,20 +112,23 @@ paper.addEventListener("click", () => {
       aiScore++;
       aiWinAudio.currentTime = 0;
       aiWinAudio.play();
-    } 
-    else {
+    } else {
       playerScore++;
       playerWinAudio.currentTime = 0;
       playerWinAudio.play();
     }
+  } else {
+    drawAudio.currentTime = 0;
+    drawAudio.play();
   }
+
   player.textContent = `You: ${playerScore}`;
   ai.textContent = `AI: ${aiScore}`;
   gameEnd(playerScore, aiScore);
 });
 
 scissors.addEventListener("click", () => {
-  setImagePlayer("./images/scissors.png");
+  setImagePlayer("/images/scissors.png");
   pChoice = 3;
   aChoice = getComputerChoice();
   if (aChoice != pChoice) {
@@ -130,13 +136,16 @@ scissors.addEventListener("click", () => {
       aiScore++;
       aiWinAudio.currentTime = 0;
       aiWinAudio.play();
-    } 
-    else {
+    } else {
       playerScore++;
       playerWinAudio.currentTime = 0;
       playerWinAudio.play();
     }
+  } else {
+    drawAudio.currentTime = 0;
+    drawAudio.play();
   }
+
   player.textContent = `You: ${playerScore}`;
   ai.textContent = `AI: ${aiScore}`;
   gameEnd(playerScore, aiScore);
@@ -146,7 +155,7 @@ function gameEnd(playerScore, aiScore) {
   if (playerScore === 5) {
     win1Audio.play();
     win2Audio.play();
-    win.classList.add("animate-in"); 
+    win.classList.add("animate-in");
     win.classList.remove("hidden");
     body.forEach((e) => {
       e.classList.add("blur-out");
@@ -183,8 +192,7 @@ playAgain.forEach((button) => {
         win.classList.remove("fade-out");
         win.classList.add("hidden");
       });
-    }
-    else if (aiScore === 5) {
+    } else if (aiScore === 5) {
       lose.classList.remove("animate-in");
       lose.classList.add("fade-out");
       lose.addEventListener("animationend", () => {
