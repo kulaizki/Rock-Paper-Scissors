@@ -169,8 +169,6 @@ function gameEnd(playerScore, aiScore) {
       e.classList.add("blur-out");
       e.style.pointerEvents = "none";
     });
-    //   e.classList.add("blur-out");
-    // });
   }
 }
 

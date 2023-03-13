@@ -147,7 +147,7 @@ h1 {
 }
 
 .selection img:active {
-  transform: rotate(30deg);
+  transform: rotate(20deg);
 }
 
 .scoreboard, .selected, .scores, .win, .lose {
